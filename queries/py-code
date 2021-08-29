@@ -1,0 +1,93 @@
+import os
+#f=open('/Users/kareem/Downloads/movie.txt','r')
+f=open("/Users/kareem/Downloads/movie.txt", encoding="ISO-8859-1")
+from collections import defaultdict
+movies=defaultdict(list) 
+for i in f:
+    t=i[:-1].split(',')
+    movies['serialNumber'].append(t[0])
+    movies['movieName'].append(t[1])
+    movies['releaseYear'].append(t[2])
+    movies['Rating'].append(temp[3])
+    movies['durationInSec'].append(t[4])
+f.close()
+print('Serial Number:', movies['serialNumber'][0],'\nMovie Name:',  movies['movieName'][0],'\nRelease Year:', movies['releaseYear'][0],'\nRating of Movie:', movies['Rating'][0],'\nDuration in Seconds: ', movies['durationInSec'][0])
+
+**1.Find the number of movies released between 1950 and 1960.**
+
+
+
+
+countMovies=0
+for year in movies['releaseYear']:
+    year=int(year)
+    if(year>=1950 and year<=1960):
+        countMovies+=1
+print('The number of Movies released between 1950 and 1960 are: {}'.format(countMovies))
+
+**2.Find the number of movies having rating more than 4.**
+
+
+
+
+countMovies=0
+for rating in movies['Rating']:
+    try:
+        rating=float(rating)
+        if(rating>=4):
+            countMovies+=1
+    except:
+        pass
+print('The number of movies having ratings more than 4 are: {}'.format(countMovies))
+
+
+**3.Find the movies whose rating are between 3 and 4**
+# 
+
+
+
+
+countMovies=0
+for rating in movies['Rating']:
+    try:
+        rating=float(rating)
+        if(rating>=3 and rating<=4):
+            countMovies+=1
+    except:
+        pass
+print('The number of movies having ratings between 3 and 4 are: {}'.format(countMovies))
+
+
+**4.Find the number of movies with duration more than 2 hours (7200 seconds)**
+
+
+
+
+countMovies=0
+for duration in movies['durationInSec']:
+    try:
+        duration=int(duration)
+        if(duration>=7200):
+            countMovies+=1
+    except:
+        pass
+print('No. of movies having more than 2 hours(7200 seconds) duration are: {}'.format(countMovies))
+
+
+**5.Find the list of years and number of movies released each year**
+
+
+
+
+R_year=defaultdict(int)
+for year in movies['releaseYear']:
+    R_year[year]+=1
+print('List of movies in each year: \n')
+for year, movieCounts in R_year.items():
+    print(year, movieCounts)
+
+
+**6.Find total number of movies in dataset**
+
+print('Total movies in the dataset is: {}'.format(len(dictMovies['serialNumber'])))
+
