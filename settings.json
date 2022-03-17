@@ -1,0 +1,33 @@
+{
+    "strict": true,
+
+    "debug": true,
+
+    "sp": {
+        "entityId": "https://<your_airflow_hostname>/metadata/",
+        "assertionConsumerService": {
+            "url": "https://<your_airflow_hostname>/saml/login?acs",
+            "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+        },
+        "singleLogoutService": {
+            "url": "https://<your_airflow_hostname>/saml/login?sls",
+            "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+        },
+        "NameIDFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+        "x509cert": "",
+        "privateKey": ""
+    },
+
+    "idp": {
+        "entityId": "<your_idp_entity_id>",
+        "singleSignOnService": {
+            "url": "<your_idp_sso_url>",
+            "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+        },
+        "singleLogoutService": {
+            "url": "<your_idp_slo_url>",
+            "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+        },
+        "x509cert": "<your_idp_certificate>"
+    }
+}
